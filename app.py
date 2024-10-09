@@ -4,6 +4,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 from streamlit_folium import folium_static
 import folium
+import zipfile
+import os
+
+# Descomprimir el archivo ZIP
+with zipfile.ZipFile(io.BytesIO(uploaded['datos-2024-10-09.csv.zip']), 'r') as zip_ref:
+    zip_ref.extractall('data')  # Extrae todos los archivos en la carpeta 'data'
 
 # Configuración de la página
 st.set_page_config(page_title="Dashboard de Inseguridad en Jalisco", layout="wide")
